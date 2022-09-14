@@ -6,10 +6,11 @@
     <string name="password">Password</string>
     <string name="e_mail">Email</string>
     <string name="tag">Let\'s join us and \nBuild your relationship with others</string>
-    <string name="swipe_right_for_login">Swipe Right for Login</string>
     <string name="register">Register</string>
+    <string name="signup">Sign Up</string>
     <string name="main">Main Fragment</string>
     <string name="delete_user">Delete User</string>
     <string name="re_type_password">Re-type Password</string>
     <string name="your_name">Full Name</string>
+    <string name="signedIn">You are now Signed in</string>
 </resources>
