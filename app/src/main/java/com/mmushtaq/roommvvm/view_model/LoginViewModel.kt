@@ -1,4 +1,4 @@
-package com.mmushtaq.roommvvm.view_model.fragment
+package com.mmushtaq.roommvvm.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
