@@ -11,29 +11,33 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class LoginViewModel(application: Application) : AndroidViewModel(application) {
+class SignUpViewModel(application: Application) : AndroidViewModel(application) {
 
 
     private val coroutineScope= CoroutineScope(Dispatchers.IO)
     private val db by lazy { UserDatabase(getApplication()).userDao() }
-    val onLoginComplete=MutableLiveData<Boolean>()
+    val onSignUpComplete=MutableLiveData<Boolean>()
     val onError=MutableLiveData<String>()
 
-    fun onLogin(username: String, password: String) {
+    fun onSignUp(username: String, password: String) {
 
 
         coroutineScope.launch {
             val user = db.getUser(username)
-            if(user != null && user.passwordHash==password.hashCode())
+            if(user != null)
             {
                 withContext(Dispatchers.Main){
-                    LoginState.logIn(user)
-                    onLoginComplete.value=true
+                    onError.value="user already existed"
                 }
             }
             else {
+                val userObj=User(username,password.hashCode())
+                val userid=db.insertUser(userObj)
+                userObj.id=userid
+                LoginState.logIn(userObj)
+
                 withContext(Dispatchers.Main){
-                    onError.value="invalid username or password"
+                    onSignUpComplete.value=true
                 }
 
             }

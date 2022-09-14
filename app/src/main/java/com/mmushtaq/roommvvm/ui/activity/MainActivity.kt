@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity() {
                 destination.id.toString()
             }
 
-            Toast.makeText(this@MainActivity, "Navigated to $dest",
-                Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this@MainActivity, "Navigated to $dest",
+//                Toast.LENGTH_SHORT).show()
             Log.d("NavigationActivity", "Navigated to $dest")
         }
     }
