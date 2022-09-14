@@ -38,6 +38,7 @@ class LoginFragment : Fragment() {
     private fun initView(view: View) {
 
         val loginBtn = view.findViewById<Button>(R.id.btn_login)
+        val signupBtn = view.findViewById<Button>(R.id.btn_Signup)
         val etPass = view.findViewById<EditText>(R.id.et_password)
         val etEmail = view.findViewById<EditText>(R.id.et_email)
 
@@ -56,6 +57,11 @@ class LoginFragment : Fragment() {
                 Toast.makeText(context, "error:$error", Toast.LENGTH_SHORT).show()
 
             })
+        }
+
+        signupBtn.setOnClickListener{
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_signUpFragment)
+
         }
     }
 }

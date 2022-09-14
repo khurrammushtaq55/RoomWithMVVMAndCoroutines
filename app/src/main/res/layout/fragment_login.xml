@@ -63,5 +63,17 @@
         android:textColor="@android:color/white"
         android:text="@string/login"/>
 
+    <Button
+        android:id="@+id/btn_Signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:background="@drawable/btn_custom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@android:color/white"
+        android:text="Sign Up"/>
+
 
 </RelativeLayout>

@@ -27,6 +27,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
             if(user != null && user.passwordHash==password.hashCode())
             {
                 withContext(Dispatchers.Main){
+                    LoginState.logIn(user)
                     onLoginComplete.value=true
                 }
             }

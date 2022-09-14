@@ -21,7 +21,7 @@
 
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_signOut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_custom"
@@ -31,7 +31,7 @@
         android:layout_marginBottom="30dp"
         android:layout_centerInParent="true"
         android:textColor="@android:color/white"
-        android:text="@string/signup"/>
+        android:text="sign out"/>
 
     <Button
         android:id="@+id/btn_deleteUser"
