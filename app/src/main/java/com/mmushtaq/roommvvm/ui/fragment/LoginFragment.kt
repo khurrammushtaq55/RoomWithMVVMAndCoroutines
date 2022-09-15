@@ -43,20 +43,31 @@ class LoginFragment : Fragment() {
         val etEmail = view.findViewById<EditText>(R.id.et_email)
 
         loginBtn.setOnClickListener {
-            loginViewModel.onLogin(etEmail.text.toString(),etPass.text.toString())
-            loginViewModel.onLoginComplete.observe(viewLifecycleOwner, Observer { isComplete:Boolean ->
-                if(isComplete)
-                {
-                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment)
+            val email=etEmail.text.toString()
+            val password=etPass.text.toString()
+            if(email.isEmpty() || password.isEmpty())
+            {
+                Toast.makeText(context,"Please fill all the fields",Toast.LENGTH_SHORT).show()
+            }
+            else {
 
-                }
+                loginViewModel.onLogin(email, password)
+                loginViewModel.onLoginComplete.observe(
+                    viewLifecycleOwner,
+                    Observer { isComplete: Boolean ->
+                        if (isComplete) {
+                            Navigation.findNavController(view)
+                                .navigate(R.id.action_loginFragment_to_mainFragment)
 
-            })
-            loginViewModel.onError.observe(viewLifecycleOwner, Observer { error:String ->
+                        }
 
-                Toast.makeText(context, "error:$error", Toast.LENGTH_SHORT).show()
+                    })
+                loginViewModel.onError.observe(viewLifecycleOwner, Observer { error: String ->
 
-            })
+                    Toast.makeText(context, "error:$error", Toast.LENGTH_SHORT).show()
+
+                })
+            }
         }
 
         signupBtn.setOnClickListener{
