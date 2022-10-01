@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.mmushtaq.roommvvm.R
+import com.mmushtaq.roommvvm.model.LoginState
 import com.mmushtaq.roommvvm.ui.fragment.MainFragment
 
 
@@ -28,6 +29,15 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this@MainActivity, "Navigated to $dest",
 //                Toast.LENGTH_SHORT).show()
             Log.d("NavigationActivity", "Navigated to $dest")
+        }
+
+        if(LoginState.isLoggedIn)
+        {
+            navController.navigate(this,R.id.a)
+        }
+        else
+        {
+
         }
     }
 
