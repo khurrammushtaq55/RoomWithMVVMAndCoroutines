@@ -15,7 +15,6 @@ object LoginState {
     {
         isLoggedIn=true
         this.user=user
-
     }
 
 

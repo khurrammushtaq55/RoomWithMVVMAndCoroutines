@@ -46,7 +46,9 @@ class MainFragment : Fragment() {
         val signOutBtn = view?.findViewById<Button>(R.id.btn_signOut)
         val delBtn = view?.findViewById<Button>(R.id.btn_deleteUser)
 
-        logoTv?.text="You are signed in as ${LoginState.user?.userName}"
+        logoTv?.text= """
+            You are signed in as ${LoginState.user?.userName}
+            """.trimIndent()
 
             signOutBtn?.setOnClickListener {
 
